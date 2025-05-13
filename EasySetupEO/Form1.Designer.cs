@@ -55,6 +55,7 @@
             label7 = new Label();
             label6 = new Label();
             btncrtoem = new Button();
+            linkLabel1 = new LinkLabel();
             servername.SuspendLayout();
             serverip.SuspendLayout();
             serverport.SuspendLayout();
@@ -287,11 +288,24 @@
             btncrtoem.UseVisualStyleBackColor = true;
             btncrtoem.Click += btncrtoem_Click;
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(14, 509);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(63, 15);
+            linkLabel1.TabIndex = 6;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "DuaSelipar";
+            linkLabel1.LinkClicked += fbLink_LinkClicked;
+
+            // 
             // mainwindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(304, 517);
+            ClientSize = new Size(304, 533);
+            Controls.Add(linkLabel1);
             Controls.Add(btncrtoem);
             Controls.Add(groupBox1);
             Controls.Add(savebtn);
@@ -314,6 +328,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -339,5 +354,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btncrtoem;
+        private LinkLabel linkLabel1;
     }
 }

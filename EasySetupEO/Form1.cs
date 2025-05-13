@@ -440,6 +440,16 @@ namespace easysetup
 
 
         #endregion
+
+
+        private void fbLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = "https://www.facebook.com/profile.php?id=61554036273018",
+                UseShellExecute = true
+            });
+        }
     }
 
 
