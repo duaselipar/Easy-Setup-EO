@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+			<PublishSingleFile>true</PublishSingleFile>
+		<SelfContained>false</SelfContained> <!-- Optional: Include the .NET runtime -->
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<ApplicationIcon>setup-265.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="setup-265.ico" />
+  </ItemGroup>
+
+</Project>
