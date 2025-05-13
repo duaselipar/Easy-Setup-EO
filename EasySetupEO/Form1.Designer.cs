@@ -78,7 +78,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(14, 25);
+            label1.Location = new Point(20, 25);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(80, 15);
@@ -109,7 +109,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(34, 25);
+            label2.Location = new Point(42, 25);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(58, 15);
@@ -120,9 +120,11 @@
             // 
             txtServerIP.Location = new Point(108, 22);
             txtServerIP.Margin = new Padding(4, 3, 4, 3);
+            txtServerIP.MaxLength = 15;
             txtServerIP.Name = "txtServerIP";
             txtServerIP.Size = new Size(134, 23);
             txtServerIP.TabIndex = 0;
+            txtServerIP.KeyPress += txtServerIP_KeyPress;
             // 
             // serverport
             // 
@@ -145,30 +147,36 @@
             // 
             txtmsgport.Location = new Point(108, 52);
             txtmsgport.Margin = new Padding(4, 3, 4, 3);
+            txtmsgport.MaxLength = 5;
             txtmsgport.Name = "txtmsgport";
             txtmsgport.Size = new Size(134, 23);
             txtmsgport.TabIndex = 5;
+            txtmsgport.KeyPress += txtmsgport_KeyPress;
             // 
             // txtnpcport
             // 
             txtnpcport.Location = new Point(108, 82);
             txtnpcport.Margin = new Padding(4, 3, 4, 3);
+            txtnpcport.MaxLength = 5;
             txtnpcport.Name = "txtnpcport";
             txtnpcport.Size = new Size(134, 23);
             txtnpcport.TabIndex = 4;
+            txtnpcport.KeyPress += txtnpcport_KeyPress;
             // 
             // txtloginport
             // 
             txtloginport.Location = new Point(108, 22);
             txtloginport.Margin = new Padding(4, 3, 4, 3);
+            txtloginport.MaxLength = 5;
             txtloginport.Name = "txtloginport";
             txtloginport.Size = new Size(134, 23);
             txtloginport.TabIndex = 3;
+            txtloginport.KeyPress += txtloginport_KeyPress;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(31, 85);
+            label5.Location = new Point(38, 85);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(62, 15);
@@ -178,7 +186,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(29, 59);
+            label4.Location = new Point(37, 55);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(63, 15);
@@ -188,7 +196,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(29, 31);
+            label3.Location = new Point(32, 25);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(68, 15);
@@ -197,7 +205,7 @@
             // 
             // savebtn
             // 
-            savebtn.Location = new Point(149, 440);
+            savebtn.Location = new Point(149, 426);
             savebtn.Margin = new Padding(4, 3, 4, 3);
             savebtn.Name = "savebtn";
             savebtn.Size = new Size(131, 57);
@@ -250,7 +258,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(29, 97);
+            label8.Location = new Point(37, 96);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(63, 15);
@@ -260,7 +268,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(27, 67);
+            label7.Location = new Point(34, 66);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(66, 15);
@@ -270,7 +278,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(29, 35);
+            label6.Location = new Point(39, 34);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(61, 15);
@@ -279,7 +287,7 @@
             // 
             // btncrtoem
             // 
-            btncrtoem.Location = new Point(14, 440);
+            btncrtoem.Location = new Point(14, 426);
             btncrtoem.Margin = new Padding(4, 3, 4, 3);
             btncrtoem.Name = "btncrtoem";
             btncrtoem.Size = new Size(128, 57);
@@ -291,7 +299,7 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(14, 509);
+            linkLabel1.Location = new Point(14, 486);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(63, 15);
             linkLabel1.TabIndex = 6;
@@ -303,7 +311,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(304, 533);
+            ClientSize = new Size(297, 508);
             Controls.Add(linkLabel1);
             Controls.Add(btncrtoem);
             Controls.Add(groupBox1);
