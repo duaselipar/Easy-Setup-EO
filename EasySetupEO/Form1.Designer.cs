@@ -298,7 +298,6 @@
             linkLabel1.TabStop = true;
             linkLabel1.Text = "DuaSelipar";
             linkLabel1.LinkClicked += fbLink_LinkClicked;
-
             // 
             // mainwindow
             // 
@@ -312,6 +311,7 @@
             Controls.Add(serverport);
             Controls.Add(serverip);
             Controls.Add(servername);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             MaximizeBox = false;
