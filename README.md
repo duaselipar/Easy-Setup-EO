@@ -26,12 +26,6 @@ A simple Windows setup tool for configuring and preparing Eudemons Online privat
 
 ---
 
-## Screenshots
-
-> *Add your screenshots here if available (drag and drop or use Markdown image tags)*
-
----
-
 ## How To Use
 
 1. **Extract and Run**
