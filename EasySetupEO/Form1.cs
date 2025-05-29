@@ -1,7 +1,11 @@
 using System;
 using System.IO;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
+using System.Net.Http;
+
 
 namespace easysetup
 {
@@ -10,6 +14,11 @@ namespace easysetup
         public mainwindow()
         {
             InitializeComponent();
+
+            // Register event handler untuk tiga butang IP
+            BtnIPa.Click += BtnIPa_Click;
+            BtnIPb.Click += BtnIPb_Click;
+            BtnIPc.Click += BtnIPc_Click;
         }
 
         private void mainwindow_Load(object sender, EventArgs e)
@@ -21,6 +30,91 @@ namespace easysetup
             LoadMsgPort();
             LoadDatabaseConfig();
         }
+
+        #region Butang IP Event Handlers
+
+        // BtnIPa - Localhost
+        private void BtnIPa_Click(object sender, EventArgs e)
+        {
+            txtServerIP.Text = "127.0.0.1";
+        }
+
+        // BtnIPb - LAN IP (192.x.x.x atau 10.x.x.x)
+        private void BtnIPb_Click(object sender, EventArgs e)
+        {
+            string lanIp = GetLocalIPv4();
+            if (!string.IsNullOrEmpty(lanIp))
+                txtServerIP.Text = lanIp;
+            else
+                MessageBox.Show("LAN IP not Found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private string GetLocalIPv4()
+        {
+            string ip192 = null;
+            string ip10 = null;
+            string ipOther = null;
+            foreach (var ip in Dns.GetHostAddresses(Dns.GetHostName()))
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork && ip.ToString() != "127.0.0.1")
+                {
+                    if (ip.ToString().StartsWith("192.")) ip192 = ip.ToString();
+                    else if (ip.ToString().StartsWith("10.")) ip10 = ip.ToString();
+                    else ipOther = ip.ToString();
+                }
+            }
+            // Prioritikan 192 > 10 > lain-lain
+            if (!string.IsNullOrEmpty(ip192)) return ip192;
+            if (!string.IsNullOrEmpty(ip10)) return ip10;
+            if (!string.IsNullOrEmpty(ipOther)) return ipOther;
+            return "";
+        }
+
+
+
+        // BtnIPc - External IP (dapat dari api.ipify.org)
+        private async void BtnIPc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    // Cuba beberapa API public IP. Kalau fail, cuba seterusnya
+                    string[] apis = {
+                "https://ifconfig.me/ip",
+                "https://checkip.amazonaws.com"
+            };
+
+                    string publicIp = null;
+                    foreach (var api in apis)
+                    {
+                        try
+                        {
+                            publicIp = (await client.GetStringAsync(api)).Trim();
+                            if (!string.IsNullOrEmpty(publicIp) && publicIp.Contains("."))
+                                break;
+                        }
+                        catch { /* teruskan ke API lain */ }
+                    }
+
+                    if (!string.IsNullOrEmpty(publicIp))
+                    {
+                        txtServerIP.Text = publicIp;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cant get External IP.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Cant get External IP.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        #endregion
 
         #region Loading Methods
 

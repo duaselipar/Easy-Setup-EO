@@ -37,6 +37,9 @@
             label1 = new Label();
             txtServerName = new TextBox();
             serverip = new GroupBox();
+            BtnIPc = new Button();
+            BtnIPb = new Button();
+            BtnIPa = new Button();
             label2 = new Label();
             txtServerIP = new TextBox();
             serverport = new GroupBox();
@@ -95,16 +98,46 @@
             // 
             // serverip
             // 
+            serverip.Controls.Add(BtnIPc);
+            serverip.Controls.Add(BtnIPb);
+            serverip.Controls.Add(BtnIPa);
             serverip.Controls.Add(label2);
             serverip.Controls.Add(txtServerIP);
             serverip.Location = new Point(14, 83);
             serverip.Margin = new Padding(4, 3, 4, 3);
             serverip.Name = "serverip";
             serverip.Padding = new Padding(4, 3, 4, 3);
-            serverip.Size = new Size(266, 62);
+            serverip.Size = new Size(266, 85);
             serverip.TabIndex = 1;
             serverip.TabStop = false;
             serverip.Text = "Server IP";
+            // 
+            // BtnIPc
+            // 
+            BtnIPc.Location = new Point(169, 56);
+            BtnIPc.Name = "BtnIPc";
+            BtnIPc.Size = new Size(75, 23);
+            BtnIPc.TabIndex = 4;
+            BtnIPc.Text = "External";
+            BtnIPc.UseVisualStyleBackColor = true;
+            // 
+            // BtnIPb
+            // 
+            BtnIPb.Location = new Point(88, 56);
+            BtnIPb.Name = "BtnIPb";
+            BtnIPb.Size = new Size(75, 23);
+            BtnIPb.TabIndex = 3;
+            BtnIPb.Text = "LAN";
+            BtnIPb.UseVisualStyleBackColor = true;
+            // 
+            // BtnIPa
+            // 
+            BtnIPa.Location = new Point(7, 56);
+            BtnIPa.Name = "BtnIPa";
+            BtnIPa.Size = new Size(75, 23);
+            BtnIPa.TabIndex = 2;
+            BtnIPa.Text = "Local";
+            BtnIPa.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -134,7 +167,7 @@
             serverport.Controls.Add(label5);
             serverport.Controls.Add(label4);
             serverport.Controls.Add(label3);
-            serverport.Location = new Point(14, 152);
+            serverport.Location = new Point(13, 174);
             serverport.Margin = new Padding(4, 3, 4, 3);
             serverport.Name = "serverport";
             serverport.Padding = new Padding(4, 3, 4, 3);
@@ -205,7 +238,7 @@
             // 
             // savebtn
             // 
-            savebtn.Location = new Point(149, 426);
+            savebtn.Location = new Point(148, 446);
             savebtn.Margin = new Padding(4, 3, 4, 3);
             savebtn.Name = "savebtn";
             savebtn.Size = new Size(131, 57);
@@ -222,7 +255,7 @@
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label6);
-            groupBox1.Location = new Point(14, 282);
+            groupBox1.Location = new Point(13, 302);
             groupBox1.Margin = new Padding(4, 3, 4, 3);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4, 3, 4, 3);
@@ -287,7 +320,7 @@
             // 
             // btncrtoem
             // 
-            btncrtoem.Location = new Point(14, 426);
+            btncrtoem.Location = new Point(13, 446);
             btncrtoem.Margin = new Padding(4, 3, 4, 3);
             btncrtoem.Name = "btncrtoem";
             btncrtoem.Size = new Size(128, 57);
@@ -299,7 +332,7 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(14, 486);
+            linkLabel1.Location = new Point(14, 506);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(63, 15);
             linkLabel1.TabIndex = 6;
@@ -311,7 +344,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(297, 508);
+            ClientSize = new Size(297, 535);
             Controls.Add(linkLabel1);
             Controls.Add(btncrtoem);
             Controls.Add(groupBox1);
@@ -363,5 +396,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btncrtoem;
         private LinkLabel linkLabel1;
+        private Button BtnIPc;
+        private Button BtnIPb;
+        private Button BtnIPa;
     }
 }
