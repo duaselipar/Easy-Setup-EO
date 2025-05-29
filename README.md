@@ -75,11 +75,4 @@ The tool will automatically read and update the following files:
 - Always make a backup of your server files before making major changes.
 - For custom/private server distributions, some config keys or files may differ. If you encounter errors, please check your folder structure and configuration files.
 
----
 
-## Credits
-
-Created by [duaselipar](https://github.com/duaselipar)  
-Special thanks to the EO private server community for guides and file structure info.
-
----
